@@ -1,0 +1,190 @@
+/* general *******************************************/
+/****************************************************/
+:root {
+	--title-color: #000;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	margin: 0;
+	padding: 0;
+}
+
+.wrapp {
+	position: relative;
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.content {
+	max-width: 1140px;
+	width: 100%;
+	padding: 20px 0;
+	margin: 0 auto;
+}
+
+.section__item+.section__item {
+	margin-top: 100px;
+}
+
+.section__title {
+	margin-bottom: 100px;
+	margin-top: 0;
+	font-size: 70px;
+	font-weight: 800;
+	color: var(--title-color);
+}
+
+/* accordion *****************************************/
+/****************************************************/
+/*1)Accordion свободный*/
+.accordion__item {
+	position: relative;
+	padding-bottom: 30px;
+	list-style: none;
+	border-bottom: 1px solid #E3E3E3;
+	cursor: pointer;
+	user-select: none;
+}
+
+.accordion__bl {
+	position: absolute;
+	width: 26px;
+	height: 26px;
+	top: 5px;
+	right: 0;
+	border: 2.5px solid #899193;
+	border-radius: 50%;
+	pointer-events: none;
+	transition: .4s;
+}
+
+.accordion__bl::before,
+.accordion__bl::after {
+	position: absolute;
+	content: '';
+	width: 13.33px;
+	height: 2.67px;
+	top: 50%;
+	left: 50%;
+	background: #899193;
+	transform: translate(-50%, -50%);
+	border-radius: 2px;
+	transition: .4s;
+}
+
+.accordion__bl::after {
+	transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.accordion__item.active .accordion__bl {
+	border-color: #256370;
+}
+
+.accordion__item.active .accordion__bl::before,
+.accordion__item.active .accordion__bl::after {
+	background: #256370;
+}
+
+.accordion__item.active .accordion__bl::after {
+	opacity: 0;
+	transform: translate(-50%, -50%) rotate(0);
+}
+
+.accordion__item+.accordion__item {
+	margin-top: 30px;
+}
+
+.accordion__title {
+	padding-right: 110px;
+	font-family: var(--font-regular1);
+	font-weight: 400;
+	font-size: 30px;
+	font-weight: 700;
+	line-height: 33.6px;
+	color: var(--title-color2);
+}
+
+.accordion__txt {
+	display: none;
+	padding-top: 15px;
+}
+
+.accordion__descript {
+	max-width: 520px;
+	width: 100%;
+	font-family: var(--font-regular2);
+	font-size: 18px;
+	line-height: 150%;
+	color: #0C0C0D;
+}
+
+.accordion__li {
+	position: relative;
+	margin-top: 16px;
+	padding-left: 32px;
+	font-family: var(--font-regular2);
+	font-size: 18px;
+	line-height: 150%;
+	color: #0C0C0D;
+	list-style: none;
+}
+
+.accordion__li::before {
+	position: absolute;
+	content: '';
+	width: 22.12px;
+	height: 10.58px;
+	top: 9px;
+	left: 0;
+	background: #FFD948;
+	border-radius: 50%;
+	transform: matrix(0.97, -0.24, 0.24, 0.97, 0, 0);
+}
+
+.accordion__li:nth-child(even):before {
+	background: #B6E3E0;
+}
+
+.accordion__link {
+	text-decoration: none;
+	color: #256370;
+}
+
+.accordion__link:hover {
+	text-decoration: underline;
+}
+
+
+/*2)Accordion Только с одным открытым пунктом*/
+.accordion_one_item .accordion__item:first-child {
+	pointer-events: none;
+}
+
+.accordion_one_item .accordion__item:first-child .accordion__txt {
+	display: block;
+}
+
+
+
+
+
+
+
+
+
+/***======================= 3.MEDIA-SETTINGS =======================***/
+/***===============================================================***/
+
+
+
+/* 3.1.media(max-width:___px) *********************/
+/**************************************************/
+@media(max-width: 0px) {}
+
+/***======================= 3.MEDIA-SETTINGS-END =======================***/
+/***===================================================================***/
